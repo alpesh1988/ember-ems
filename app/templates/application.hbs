@@ -1,4 +1,9 @@
-
-<h2>Test the font size with 2rem</h2>
-
-{{outlet}}
+<div class="container">
+    <div id="ema-header">
+        <LinkTo @route="index" id="ema-app-title" class="">Employee Management Application</LinkTo>
+        <LinkTo @route="contact" id="ema-contact-me">Contact Me</LinkTo>
+    </div>
+    <div id="ema-body">
+        {{outlet}}
+    </div>
+</div>

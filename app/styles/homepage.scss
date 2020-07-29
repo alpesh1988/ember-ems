@@ -1,0 +1,25 @@
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+#ema-header {
+    background: $primary;
+    padding: 0.5rem 1rem;
+
+    #ema-app-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    #ema-contact-me {
+        float: right;
+        font-size: 1rem;
+        line-height: 2;
+    }
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+#ema-body {
+    padding: 1rem;
+}
