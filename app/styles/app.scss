@@ -1,3 +1,6 @@
-$primary: #2494c5;
+@import "./variables.scss";
 @import "ember-bootstrap/bootstrap";
+@import "./shared.scss";
+@import "./table.scss";
 @import "./homepage.scss";
+@import "./employee.scss";

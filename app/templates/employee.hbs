@@ -1,3 +1,34 @@
-{{#each @model as |employee|}}
-    <p> {{employee.id}} - {{employee.firstname }} = {{employee.salary}} </p>
-{{/each}}
+<div class="text-right ema-mb1">
+    <LinkTo @route="contact" class="btn btn-primary"><i class="material-icons ema-add-circle-icon">add_circle</i> Add employee</LinkTo>
+</div>
+
+<table class="table table-bordered table-striped employee-table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Salary (€)</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @model as |employee|}}
+    <tr> 
+        <td class="text-right"> {{employee.id}}</td>
+        <td> {{employee.firstname}}</td>
+        <td> {{employee.lastname}} </td>
+        <td> {{employee.address}} </td>
+        <td class="text-right"> {{employee.salary}} </td>
+        <td> {{employee.email}} </td>
+        <td> 
+            <i class="material-icons">edit <BsTooltip @title="Edit" @placement="bottom" /></i>
+            <i class="material-icons">delete <BsTooltip @title="Delete" @placement="bottom" /></i>
+            <i class="material-icons">visibility <BsTooltip @title="View" @placement="bottom" /></i>
+        </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

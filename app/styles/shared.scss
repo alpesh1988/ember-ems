@@ -1,0 +1,11 @@
+.material-icons {
+    color: $primary;
+    cursor: pointer;
+
+    & + .material-icons {
+        margin-left: 0.5rem;
+    }
+}
+.ema-mb1 {
+    margin-bottom: 1rem;
+}
