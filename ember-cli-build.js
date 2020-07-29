@@ -12,7 +12,7 @@ module.exports = function(defaults) {
     'ember-bootstrap': {
       'bootstrapVersion': 4,
       'importBootstrapCSS': false,
-      'whitelist': ['bs-navbar']
+      'whitelist': ['bs-navbar', 'bs-tooltip']
     }
   });
 
