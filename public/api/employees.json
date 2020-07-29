@@ -1,25 +1,37 @@
 ﻿{
-  "employees": [
+  "data": [
     {
-      "firstName": "Romin",
-      "lastName": "Irani",
-      "address": "CA",
-      "salary": 60000,
-      "email": "romin.k.irani@gmail.com"
+      "id": 1,
+      "type": "employee",
+      "attributes": {
+        "firstname": "Romin",
+        "lastname": "Irani",
+        "address": "CA",
+        "salary": 60000,
+        "email": "romin.k.irani@gmail.com"
+      }
     },
     {
-      "firstName": "Neil",
-      "lastName": "Irani",
-      "address": "CA",
-      "salary": 65000,
-      "emailAddress": "neilrirani@gmail.com"
+      "id": 2,
+      "type": "employee",
+      "attributes": {
+        "firstname": "Neil",
+        "lastname": "Irani",
+        "address": "CA",
+        "salary": 65000,
+        "email": "neilrirani@gmail.com"
+      }
     },
     {
-      "firstName": "Tom",
-      "lastName": "Hanks",
-      "address": "CA",
-      "salary": 70000,
-      "emailAddress": "tomhanks@gmail.com"
+      "id": 3,
+      "type": "employee",
+      "attributes": {
+        "firstname": "Tom",
+        "lastname": "Hanks",
+        "address": "CA",
+        "salary": 70000,
+        "email": "tomhanks@gmail.com"
+      }
     }
   ]
 }
