@@ -7,6 +7,12 @@ module.exports = function(defaults) {
     // Add options here
     sassOptions: {
       extension: 'scss'
+    },
+
+    'ember-bootstrap': {
+      'bootstrapVersion': 4,
+      'importBootstrapCSS': false,
+      'whitelist': ['bs-navbar']
     }
   });
 

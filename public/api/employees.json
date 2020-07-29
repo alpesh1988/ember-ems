@@ -1,0 +1,25 @@
+﻿{
+  "employees": [
+    {
+      "firstName": "Romin",
+      "lastName": "Irani",
+      "address": "CA",
+      "salary": 60000,
+      "email": "romin.k.irani@gmail.com"
+    },
+    {
+      "firstName": "Neil",
+      "lastName": "Irani",
+      "address": "CA",
+      "salary": 65000,
+      "emailAddress": "neilrirani@gmail.com"
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Hanks",
+      "address": "CA",
+      "salary": 70000,
+      "emailAddress": "tomhanks@gmail.com"
+    }
+  ]
+}
