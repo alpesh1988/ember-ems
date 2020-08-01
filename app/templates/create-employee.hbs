@@ -3,6 +3,10 @@
     
 <div id="ema-create-employee-form" class="jumbotron text-center">
 
+    {{#each flashMessages.queue as |flash|}}
+        {{flash-message flash=flash}}
+    {{/each}}
+
     <h2 class="ema-mb1">Create employee</h2>
 
     <form onsubmit={{ action "createEmployee" }}>

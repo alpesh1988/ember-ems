@@ -20,6 +20,10 @@
   </div>
 </div>
 
+{{#each flashMessages.queue as |flash|}}
+  {{flash-message flash=flash}}
+{{/each}}
+
 <table class="table table-bordered table-striped employee-table">
   <thead>
     <tr>
