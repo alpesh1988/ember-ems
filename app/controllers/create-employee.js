@@ -1,12 +1,15 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { inject } from '@ember/service';
 
 export default class CreateEmployeeController extends Controller {
-    firstname;
-    lastname;
-    address;
-    salary;
-    email;
+    @tracked firstname;
+    @tracked lastname;
+    @tracked address;
+    @tracked salary;
+    @tracked email;
+    flashMessages = inject();
 
     @action
     createEmployee() {
@@ -17,19 +20,28 @@ export default class CreateEmployeeController extends Controller {
         console.log('salary', this.salary);
         console.log('email', this.email);
 
-        let employee = this.store.createRecord('employee', {
-            firstname: this.firstname,
-            lastname: this.lastname,
-            address: this.address,
-            salary: parseFloat(this.salary),
-            email: this.email
-        });
+        let flashMessages = get(this, 'flashMessages'),
+            employee = this.store.createRecord('employee', {
+                firstname: this.firstname,
+                lastname: this.lastname,
+                address: this.address,
+                salary: parseFloat(this.salary),
+                email: this.email
+            });
 
         employee.save().then(() => {
-            
-            // this.transitionToRoute("employee");
+            this.resetCreateEmployeeForm();
+            flashMessages.success('Employee record has been created successfully!');
         }).catch((error) => {
             console.log("Error: ", error);
         });
+    }
+
+    resetCreateEmployeeForm() {
+        this.firstname = '';
+        this.lastname = '';
+        this.address = '';
+        this.salary = '';
+        this.email = '';
     }
 }

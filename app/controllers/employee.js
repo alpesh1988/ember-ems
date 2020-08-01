@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject } from '@ember/service';
 
 export default class EmployeeController extends Controller {
     @tracked isUpdateModalOpened = false;
@@ -8,6 +9,7 @@ export default class EmployeeController extends Controller {
     @tracked isDeleteModalOpened = false;
     @tracked record = {};
     @tracked employeeId;
+    flashMessages = inject();
 
     // Open modal on clicking edit icon
     @action
@@ -27,9 +29,10 @@ export default class EmployeeController extends Controller {
     // Update employee
     @action
     updateEmployee() {
+        let flashMessages = get(this, 'flashMessages'),
+          self = this;
 
-        let self = this;
-        this.store.findRecord('employee', this.employeeId).then(function(employee) {
+        self.store.findRecord('employee', this.employeeId).then(function(employee) {
             employee.firstname = self.record.firstname;
             employee.lastname = self.record.lastname;
             employee.address = self.record.address;
@@ -37,6 +40,7 @@ export default class EmployeeController extends Controller {
             employee.email = self.record.email;
             employee.save().then((success) => {
                 self.isUpdateModalOpened = false;
+                flashMessages.success('Employee record has been updated successfully!');
             }).catch((error) => {
                 console.log("Error: ", error);
             });
@@ -89,10 +93,13 @@ export default class EmployeeController extends Controller {
     @action
     deleteEmployee() {
 
-        let self = this;
-        let employee = this.store.peekRecord('employee', this.employeeId);
+        let self = this,
+          flashMessages = get(this, 'flashMessages'),
+          employee = this.store.peekRecord('employee', this.employeeId);
+
         employee.destroyRecord().then((success) => {
             self.isDeleteModalOpened = false;
+            flashMessages.danger('Employee record has been deleted successfully!');
         }).catch((error) => {
             console.log("Error: ", error);
         });
