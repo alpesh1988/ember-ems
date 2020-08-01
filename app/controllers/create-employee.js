@@ -9,7 +9,7 @@ export default class CreateEmployeeController extends Controller {
     email;
 
     @action
-    onsubmit() {
+    createEmployee() {
         
         console.log('firstname', this.firstname);
         console.log('lastname', this.lastname);
