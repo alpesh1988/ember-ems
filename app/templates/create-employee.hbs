@@ -1,13 +1,13 @@
 
-<LinkTo @route="employee" class="btn btn-primary"><i class="material-icons ema-material-icon">keyboard_arrow_left</i> Go to employee list</LinkTo>
+<LinkTo @route="employee" class="btn btn-primary ema-mb1"><i class="material-icons ema-material-icon">keyboard_arrow_left</i> Go to employee list</LinkTo>
     
-<div id="ema-create-employee-form" class="jumbotron text-center">
+<div id="ema-create-employee-form" class="jumbotron">
 
     {{#each flashMessages.queue as |flash|}}
         {{flash-message flash=flash}}
     {{/each}}
 
-    <h2 class="ema-mb1">Create employee</h2>
+    <h2 class="ema-mb1 text-center">Create employee</h2>
 
     <form onsubmit={{ action "createEmployee" }}>
         <div class="form-group row">

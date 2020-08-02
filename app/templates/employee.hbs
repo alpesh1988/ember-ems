@@ -24,36 +24,38 @@
   {{flash-message flash=flash}}
 {{/each}}
 
-<table class="table table-bordered table-striped employee-table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Salary (€)</th>
-      <th scope="col">Email</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each @model as |employee|}}
-    <tr> 
-        <td class="text-right"> {{employee.id}}</td>
-        <td> {{employee.firstname}}</td>
-        <td> {{employee.lastname}} </td>
-        <td> {{employee.address}} </td>
-        <td class="text-right"> {{employee.salary}} </td>
-        <td> {{employee.email}} </td>
-        <td> 
-            <i class="material-icons" onclick={{action this.onClickUpdateIcon employee}}>edit <BsTooltip @title="Update"@placement="bottom" /></i>
-            <i class="material-icons" onclick={{action this.onClickDeleteIcon employee}}>delete <BsTooltip @title="Delete" @placement="bottom" /></i>
-            <i class="material-icons" onclick={{action this.onClickViewIcon employee}}>visibility <BsTooltip @title="View" @placement="bottom" /></i>
-        </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped  employee-table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Salary (€)</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @model as |employee|}}
+      <tr> 
+          <td class="text-right"> {{employee.id}}</td>
+          <td> {{employee.firstname}}</td>
+          <td> {{employee.lastname}} </td>
+          <td> {{employee.address}} </td>
+          <td class="text-right"> {{employee.salary}} </td>
+          <td> {{employee.email}} </td>
+          <td> 
+              <i class="material-icons" onclick={{action this.onClickUpdateIcon employee}}>edit <BsTooltip @title="Update"@placement="bottom" /></i>
+              <i class="material-icons" onclick={{action this.onClickDeleteIcon employee}}>delete <BsTooltip @title="Delete" @placement="bottom" /></i>
+              <i class="material-icons" onclick={{action this.onClickViewIcon employee}}>visibility <BsTooltip @title="View" @placement="bottom" /></i>
+          </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
 <!-- Modal for Updating employee -->
 <BsModal
@@ -68,31 +70,31 @@
   </modal.header>
   <modal.body>        
     <div class="form-group row">
-        <label for="firstname" class="col-lg-3 col-form-label text-right">Firstname</label>
+        <label for="firstname" class="col-lg-3 col-form-label">Firstname</label>
         <div class="col-lg-9">
         {{ input type="text" id="firstname" class="form-control" placeholder="Enter first name" value=this.record.firstname }}
         </div>
     </div>
     <div class="form-group row">
-        <label for="lastname" class="col-lg-3 col-form-label text-right">Lastname</label>
+        <label for="lastname" class="col-lg-3 col-form-label">Lastname</label>
         <div class="col-lg-9">
         {{ input type="text" id="lastname" class="form-control" placeholder="Enter last name" value=this.record.lastname }}
         </div>
     </div>
     <div class="form-group row">
-        <label for="address" class="col-lg-3 col-form-label text-right">Address</label>
+        <label for="address" class="col-lg-3 col-form-label">Address</label>
         <div class="col-lg-9">
         {{ input type="text" id="address" class="form-control" placeholder="Enter address" value=this.record.address }}
         </div>
     </div>
     <div class="form-group row">
-        <label for="salary" class="col-lg-3 col-form-label text-right">Salary</label>
+        <label for="salary" class="col-lg-3 col-form-label">Salary</label>
         <div class="col-lg-9">
         {{ input type="text" id="salary" class="form-control" placeholder="Enter salary" value=this.record.salary }}
         </div>
     </div>
     <div class="form-group row">
-        <label for="email" class="col-lg-3 col-form-label text-right">Email</label>
+        <label for="email" class="col-lg-3 col-form-label">Email</label>
         <div class="col-lg-9">
         {{ input type="text" id="email" class="form-control" placeholder="Enter email" value=this.record.email }}
         </div>
@@ -115,20 +117,36 @@
     </h4>
   </modal.header>
   <modal.body>
-    <div class="form-group">
+    
+    <div class="form-group row">
+        <label for="firstname" class="col-lg-3 col-form-label">Firstname</label>
+        <div class="col-lg-9">
         {{ input type="text" id="firstname" class="form-control" readonly=true value=this.record.firstname }}
+        </div>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+        <label for="lastname" class="col-lg-3 col-form-label">Lastname</label>
+        <div class="col-lg-9">
         {{ input type="text" id="lastname" class="form-control" readonly=true value=this.record.lastname }}
+        </div>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+        <label for="address" class="col-lg-3 col-form-label">Address</label>
+        <div class="col-lg-9">
         {{ input type="text" id="address" class="form-control" readonly=true value=this.record.address }}
+        </div>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+        <label for="salary" class="col-lg-3 col-form-label">Salary</label>
+        <div class="col-lg-9">
         {{ input type="text" id="salary" class="form-control" readonly=true value=this.record.salary }}
+        </div>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+        <label for="email" class="col-lg-3 col-form-label">Email</label>
+        <div class="col-lg-9">
         {{ input type="text" id="email" class="form-control" readonly=true value=this.record.email }}
+        </div>
     </div>
   </modal.body>
   <modal.footer>
@@ -151,23 +169,23 @@
     Are you sure you want to delete this employee ?<br><br>
     
     <h6 class="row">
-      <div class="col-lg-3 text-right"><small class="text-muted">Firstname:</small></div>
+      <div class="col-lg-3"><small class="text-muted">Firstname:</small></div>
       <div class="col-lg-9">{{ this.record.firstname}}</div>
     </h6>
     <h6 class="row">
-      <div class="col-lg-3 text-right"><small class="text-muted">Lastname:</small></div>
+      <div class="col-lg-3"><small class="text-muted">Lastname:</small></div>
       <div class="col-lg-9">{{ this.record.lastname}}</div>
     </h6>
     <h6 class="row">
-      <div class="col-lg-3 text-right"><small class="text-muted">Address:</small></div>
+      <div class="col-lg-3"><small class="text-muted">Address:</small></div>
       <div class="col-lg-9">{{ this.record.address}}</div>
     </h6>
     <h6 class="row">
-      <div class="col-lg-3 text-right"><small class="text-muted">Salary:</small></div>
+      <div class="col-lg-3"><small class="text-muted">Salary:</small></div>
       <div class="col-lg-9">{{ this.record.salary}}</div>
     </h6>
     <h6 class="row">
-      <div class="col-lg-3 text-right"><small class="text-muted">Email:</small></div>
+      <div class="col-lg-3"><small class="text-muted">Email:</small></div>
       <div class="col-lg-9">{{ this.record.email}}</div>
     </h6>
   </modal.body>
